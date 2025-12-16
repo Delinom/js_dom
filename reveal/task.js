@@ -1,4 +1,4 @@
-reveal = document.querySelector('.reveal');
+const reveals = document.querySelectorAll('.reveal');
 
 function isVisible(el) {
   const { top, bottom } = el.getBoundingClientRect();
@@ -7,9 +7,11 @@ function isVisible(el) {
 }
 
 window.addEventListener('scroll', () => {
-    if (isVisible(reveal)) {
-    reveal.classList.add('reveal_active');
-    } else {
-        reveal.classList.remove('reveal_active');
-        }
+    reveals.forEach(reveal => {
+        if (isVisible(reveal)) {
+        reveal.classList.add('reveal_active');
+        } else {
+            reveal.classList.remove('reveal_active');
+            }
+    });
 });
